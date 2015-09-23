@@ -1,6 +1,6 @@
 CFLAGS = -O3 -Wall -Wextra -fno-strict-aliasing -Wno-unused-result
 
-ALL = daligner daligner_p HPCdaligner HPCmapper LAsort LAmerge LAsplit LAcat LAshow LAcheck LA4Falcon DB2Falcon DB.so
+ALL = daligner daligner_p HPCdaligner HPCmapper LAsort LAmerge LAsplit LAcat LAshow LAcheck LA4Falcon LA4Awesome DB2Falcon DB.so
 
 all: $(ALL)
 
@@ -27,6 +27,9 @@ LAshow: LAshow.c align.c align.h DB.c DB.h QV.c QV.h
 
 LA4Falcon: LA4Falcon.c align.c align.h DB.c DB.h QV.c QV.h
 	gcc $(CFLAGS) -o LA4Falcon LA4Falcon.c align.c DB.c QV.c -lm
+
+LA4Awesome: LA4Awesome.c align.c align.h DB.c DB.h QV.c QV.h
+	gcc $(CFLAGS) -o LA4Awesome LA4Awesome.c align.c DB.c QV.c -lm
 
 LAcat: LAcat.c align.h DB.c DB.h QV.c QV.h
 	gcc $(CFLAGS) -o LAcat LAcat.c DB.c QV.c -lm
