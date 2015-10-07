@@ -72,8 +72,8 @@ static int ORDER(const void *l, const void *r)
 }
 
 int main(int argc, char *argv[])
-{ HITS_DB   _db1, *db1 = &_db1; 
-  HITS_DB   _db2, *db2 = &_db2; 
+{ HITS_DB   _db1, *db1 = &_db1;
+  HITS_DB   _db2, *db2 = &_db2;
   Overlap   _ovl, *ovl = &_ovl;
   Alignment _aln, *aln = &_aln;
 
@@ -285,7 +285,7 @@ int main(int argc, char *argv[])
 
           b = 0;
           for (c = 0; c < reps; c += 2)
-            if (b > 0 && pts[b-1] >= pts[c]-1) 
+            if (b > 0 && pts[b-1] >= pts[c]-1)
               { if (pts[c+1] > pts[b-1])
                   pts[b-1] = pts[c+1];
               }
@@ -303,7 +303,7 @@ int main(int argc, char *argv[])
     }
 
   //  Initiate file reading and read (novl, tspace) header
-  
+
   { char  *over, *pwd, *root;
 
     pwd   = PathTo(argv[2+ISTWO]);
@@ -336,7 +336,7 @@ int main(int argc, char *argv[])
   }
 
   //  Read the file and display selected records
-  
+
   { int        j;
     uint16    *trace;
     Work_Data *work;
@@ -469,7 +469,7 @@ int main(int argc, char *argv[])
                     printf(" %d ->%lld\n",db2->reads[blast].rlen,db2->reads[blast].coff);
                   }
                 match = 0;
-                seen  = 0; 
+                seen  = 0;
                 lhalf = rhalf = 0;
                 blast += 1;
               }
@@ -484,7 +484,7 @@ int main(int argc, char *argv[])
           }
 
         //  Display it
-            
+
         if (ALIGN || CARTOON || REFERENCE)
           printf("\n");
         if (FLIP)
@@ -506,11 +506,11 @@ int main(int argc, char *argv[])
         Print_Number((int64) ovl->path.abpos,ai_wide,stdout);
         printf("..");
         Print_Number((int64) ovl->path.aepos,ai_wide,stdout);
-        printf("] x [");
+        printf("]%d x [",aln->alen);
         Print_Number((int64) ovl->path.bbpos,bi_wide,stdout);
         printf("..");
         Print_Number((int64) ovl->path.bepos,bi_wide,stdout);
-        printf("]");
+        printf("]/%d",aln->blen);
 
         if (ALIGN || CARTOON || REFERENCE)
           { if (ALIGN || REFERENCE)
