@@ -549,14 +549,14 @@ int main(int argc, char *argv[])
               printf("\n");
             if (FLIP)
               { Flip_Alignment(aln,0);
-                Print_Number((int64) ovl->bread+1,ar_wide+1,stdout);
+                Print_Number((int64) ovl->bread,ar_wide+1,stdout);
                 printf("  ");
-                Print_Number((int64) ovl->aread+1,br_wide+1,stdout);
+                Print_Number((int64) ovl->aread,br_wide+1,stdout);
               }
             else
-              { Print_Number((int64) ovl->aread+1,ar_wide+1,stdout);
+              { Print_Number((int64) ovl->aread,ar_wide+1,stdout);
                 printf("  ");
-                Print_Number((int64) ovl->bread+1,br_wide+1,stdout);
+                Print_Number((int64) ovl->bread,br_wide+1,stdout);
               }
             if (COMP(ovl->flags))
               printf(" c");
@@ -566,11 +566,11 @@ int main(int argc, char *argv[])
             Print_Number((int64) ovl->path.abpos,ai_wide,stdout);
             printf("..");
             Print_Number((int64) ovl->path.aepos,ai_wide,stdout);
-            printf("] x [");
+            printf("]/%d x [", aln->alen);
             Print_Number((int64) ovl->path.bbpos,bi_wide,stdout);
             printf("..");
             Print_Number((int64) ovl->path.bepos,bi_wide,stdout);
-            printf("]");
+            printf("]/%d", aln->blen);
         }
 
         //  Display it
