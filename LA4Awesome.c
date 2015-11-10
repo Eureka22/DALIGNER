@@ -662,7 +662,7 @@ int main(int argc, char *argv[])
                     Load_Read(db2, ovl->bread, bbuffer, 0);
                     if (COMP(aln->flags))
                         Complement_Seq(bbuffer, aln->blen);
-                    Compute_Trace_PTS(aln,work,tspace);
+                    Compute_Trace_PTS(aln,work,tspace,GREEDIEST);
                     int tlen  = aln->path->tlen;
                     int *trace = aln->path->trace;
                     int u;
@@ -720,7 +720,7 @@ int main(int argc, char *argv[])
                 else
                   aln->bseq = bseq - bmin;
 
-                Compute_Trace_PTS(aln,work,tspace);
+                Compute_Trace_PTS(aln,work,tspace,GREEDIEST);
 
                 if (FLIP)
                   { if (COMP(aln->flags))
